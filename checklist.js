@@ -3,6 +3,7 @@ let list = document.querySelector('#list');
 
 input.addEventListener('keypress', function(event) {
 	if (event.key == 'Enter') {
-		// здесь будет код для добавление новой li в список
+		list.innerHTML += `<li>${input.value}</li>`;
+		input.value = '';
 	}
 });
