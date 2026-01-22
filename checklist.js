@@ -1,16 +1,18 @@
 const input = document.querySelector("#input");
 const list = document.querySelector("#list");
+let editingTask = null;
 
 input.addEventListener("keypress", function (event) {
-  if (event.key == "Enter") {
+  console.log(input.value)
+  if (event.key == "Enter" && input.value) {
     const li = document.createElement("li");
 
     const task = document.createElement("span");
     task.classList.add("task");
     task.textContent = this.value;
     task.addEventListener("dblclick", function () {
-      li.remove();
-      input.value = task
+      editingTask = task;
+      input.value = task.textContent;
     });
     li.appendChild(task);
 
